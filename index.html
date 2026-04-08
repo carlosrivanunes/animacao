@@ -11,147 +11,62 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-a"></div>
-    <div class="bg-glow bg-glow-b"></div>
+  <main class="container">
 
-   
-
-    <main id="home">
-      <section class="hero reveal" data-reveal>
-        <div class="hero-copy">
-          <h1>Exemplos de animacao</h1>
+    <section class="example-list">
+      <div class="example-item reveal" data-reveal>
+        <div class="motion-demo demo-fade" data-demo="fade">
+          <div class="fade-box fade-a"></div>
+          <div class="fade-box fade-b"></div>
+          <div class="fade-box fade-c"></div>
         </div>
-      </section>
+        <h3>Fade In</h3>
+      </div>
 
-      <section class="section-intro reveal" id="colecao" data-reveal>
-        <div>
-          <h2>Exemplos</h2>
+      <div class="example-item reveal" data-reveal>
+        <div class="motion-demo demo-slide" data-demo="slide">
+          <div class="slide-bar slide-1"></div>
+          <div class="slide-bar slide-2"></div>
+          <div class="slide-bar slide-3"></div>
         </div>
-      </section>
+        <h3>Slide Up</h3>
+      </div>
 
-      <section class="gallery">
-        <article class="motion-card reveal" data-reveal>
-          <div class="motion-demo demo-fade" data-demo="fade">
-            <div class="demo-panel fade-a"></div>
-            <div class="demo-panel fade-b"></div>
-            <div class="demo-note">fade in</div>
+      <div class="example-item reveal" data-reveal>
+        <div class="motion-demo demo-text" data-demo="text">
+          <div class="text-mask">
+            <span>ai catatau</span>
+            <span>calma mano</span>
+            <span>respira</span>
           </div>
-          <div class="motion-copy">
-            <p class="motion-tag">01. Fade In</p>
-            <h3>Entrada suave para apresentar conteudo sem susto.</h3>
-            <p>
-              Essa animacao funciona quando voce quer que um elemento apareca com elegancia. Muito usada em cards,
-              blocos de texto e interfaces que precisam passar sensacao de cuidado.
-            </p>
-            <p class="motion-meta">Quando usar: introducao de secoes, listas e paineis.</p>
-            <button class="button button-tertiary" type="button" data-replay="fade">Ver de novo</button>
-          </div>
-        </article>
+        </div>
+        <h3>Text Reveal</h3>
+      </div>
 
-        <article class="motion-card reveal" data-reveal>
-          <div class="motion-demo demo-slide" data-demo="slide">
-            <div class="slide-track">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+      <div class="example-item reveal" data-reveal>
+        <div class="motion-demo demo-stagger" data-demo="stagger">
+          <div class="stagger-row">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div class="motion-copy">
-            <p class="motion-tag">02. Slide Up</p>
-            <h3>Movimento que guia o olhar e cria direcao.</h3>
-            <p>
-              O slide da sensacao de progresso. Ele e forte para apresentar etapas, beneficios ou qualquer bloco que
-              precise parecer que esta chegando no momento certo.
-            </p>
-            <p class="motion-meta">Quando usar: timeline, onboarding e chamadas de destaque.</p>
-            <button class="button button-tertiary" type="button" data-replay="slide">Ver de novo</button>
-          </div>
-        </article>
+        </div>
+        <h3>Stagger</h3>
+      </div>
 
-        <article class="motion-card reveal" data-reveal>
-          <div class="motion-demo demo-text" data-demo="text">
-            <div class="text-mask">
-              <span>Texto que entra</span>
-              <span>como revelacao</span>
-              <span>quase cinematografica</span>
-            </div>
-          </div>
-          <div class="motion-copy">
-            <p class="motion-tag">03. Text Reveal</p>
-            <h3>Palavras aparecendo em camadas para valorizar a mensagem.</h3>
-            <p>
-              Em vez de jogar o texto inteiro de uma vez, essa tecnica monta ritmo. Ela funciona muito bem quando a
-              frase importa e precisa chegar com mais peso emocional.
-            </p>
-            <p class="motion-meta">Quando usar: frases de impacto, manifestos e headlines.</p>
-            <button class="button button-tertiary" type="button" data-replay="text">Ver de novo</button>
-          </div>
-        </article>
-
-        <article class="motion-card reveal" data-reveal>
-          <div class="motion-demo demo-stagger" data-demo="stagger">
-            <div class="stagger-grid">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div class="motion-copy">
-            <p class="motion-tag">04. Stagger</p>
-            <h3>Itens entrando em sequencia para organizar informacao.</h3>
-            <p>
-              O stagger e um classico porque resolve bem listas, menus e galerias. A aparicao em cadeia deixa a leitura
-              mais leve e ajuda a pessoa a entender a ordem do conteudo.
-            </p>
-            <p class="motion-meta">Quando usar: cards, beneficios, listas de recursos e menus.</p>
-            <button class="button button-tertiary" type="button" data-replay="stagger">Ver de novo</button>
-          </div>
-        </article>
-
-        <article class="motion-card reveal" data-reveal>
-          <div class="motion-demo demo-parallax" data-demo="parallax" data-parallax-root>
-            <div class="parallax-layer layer-back" data-parallax="-20"></div>
-            <div class="parallax-layer layer-mid" data-parallax="10"></div>
-            <div class="parallax-layer layer-front" data-parallax="24"></div>
-          </div>
-          <div class="motion-copy">
-            <p class="motion-tag">05. Parallax</p>
-            <h3>Profundidade visual para deixar a pagina menos estatica.</h3>
-            <p>
-              Quando camadas se movem em velocidades diferentes, o site ganha sensacao espacial. O segredo e usar com
-              controle, para enriquecer a experiencia sem cansar.
-            </p>
-            <p class="motion-meta">Quando usar: hero section, banners e storytelling visual.</p>
-            <button class="button button-tertiary" type="button" data-replay="parallax">Ver de novo</button>
-          </div>
-        </article>
-
-        <article class="motion-card reveal" data-reveal>
-          <div class="motion-demo demo-float" data-demo="float">
-            <div class="float-chip chip-a">UI</div>
-            <div class="float-chip chip-b">Motion</div>
-            <div class="float-chip chip-c">Depth</div>
-          </div>
-          <div class="motion-copy">
-            <p class="motion-tag">06. Floating Elements</p>
-            <h3>Micro movimento continuo para manter a interface viva.</h3>
-            <p>
-              Pequenos objetos flutuando passam sensacao de suavidade e sofisticacao. E uma camada boa para fundos,
-              areas conceituais e composicoes que precisam de ar.
-            </p>
-            <p class="motion-meta">Quando usar: fundos decorativos, sessoes premium e cenas abstratas.</p>
-            <button class="button button-tertiary" type="button" data-replay="float">Ver de novo</button>
-          </div>
-        </article>
-      </section>
-
-    </main>
-  </div>
+      <div class="example-item reveal" data-reveal>
+        <div class="motion-demo demo-float" data-demo="float">
+          <div class="float-chip chip-a"></div>
+          <div class="float-chip chip-b"></div>
+          <div class="float-chip chip-c"></div>
+          <div class="float-chip chip-d"></div>
+        </div>
+        <h3>Floating</h3>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
