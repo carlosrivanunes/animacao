@@ -9,6 +9,14 @@ body {
   color: #111;
 }
 
+.titulo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
