@@ -1,73 +1,293 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplos de Animacao</title>
-  <meta
-    name="description"
-    content="Uma vitrine editorial com exemplos de animacoes para interface, cada uma com demonstracao visual e explicacao objetiva."
-  >
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Guia Completo de @keyframes</title>
+    <style>
+
+     
+    </style>
 </head>
 <body>
-  <main class="container">
 
-    <section class="example-list">
-      <div class="example-item reveal" data-reveal>
-        <div class="motion-demo demo-fade" data-demo="fade">
-          <div class="fade-box fade-a"></div>
-          <div class="fade-box fade-b"></div>
-          <div class="fade-box fade-c"></div>
+<div class="apresentacao-container">
+
+    <nav class="abas-nav">
+        <button class="aba-btn ativa" onclick="abrirAba(event, 'aba1')">1. Sintaxe</button>
+        <button class="aba-btn"       onclick="abrirAba(event, 'aba2')">2. Duração e Timing</button>
+        <button class="aba-btn"       onclick="abrirAba(event, 'aba3')">3. Delay e Iteração</button>
+        <button class="aba-btn"       onclick="abrirAba(event, 'aba4')">4. Direção e Fill</button>
+        <button class="aba-btn"       onclick="abrirAba(event, 'aba5')">5. Play-state e Múltiplas</button>
+    </nav>
+
+    <div id="aba1" class="aba-conteudo ativa">
+        <div class="header-aluno">
+            <h2>Sintaxe do @keyframes</h2>
+            <p>Aluno 1: Como escrever um @keyframes — from/to vs porcentagens.</p>
         </div>
-        <h3>Fade In</h3>
-      </div>
 
-      <div class="example-item reveal" data-reveal>
-        <div class="motion-demo demo-slide" data-demo="slide">
-          <div class="slide-bar slide-1"></div>
-          <div class="slide-bar slide-2"></div>
-          <div class="slide-bar slide-3"></div>
+        <div class="palco">
+            <div class="palco-label">
+                <div class="ex-fromto"></div>
+                <span>from / to</span>
+            </div>
+            <div class="palco-label">
+                <div class="ex-pct"></div>
+                <span>0% 25% 50% 75% 100%</span>
+            </div>
+            <div class="palco-label">
+                <div class="ex-loop"></div>
+                <span>0%, 100% iguais</span>
+            </div>
         </div>
-        <h3>Slide Up</h3>
-      </div>
 
-      <div class="example-item reveal" data-reveal>
-        <div class="motion-demo demo-text" data-demo="text">
-          <div class="text-mask">
-            <span>ai catatau</span>
-            <span>calma mano</span>
-            <span>respira</span>
-          </div>
+        <div class="vscode-window">
+            <div class="vscode-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<pre><span class="comment">/* from/to: atalho pra 0% e 100% — bom pra animações simples */</span>
+<span class="keyword">@keyframes</span> <span class="selector">mover</span> <span class="punctuation">{</span>
+    <span class="keyword">from</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateX(-40px)</span><span class="punctuation">;</span> <span class="punctuation">}</span>  <span class="comment">/* ponto de início */</span>
+    <span class="keyword">to</span>   <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateX( 40px)</span><span class="punctuation">;</span> <span class="punctuation">}</span>  <span class="comment">/* ponto de fim */</span>
+<span class="punctuation">}</span>
+
+<span class="comment">/* porcentagens: controla cada etapa do meio */</span>
+<span class="keyword">@keyframes</span> <span class="selector">etapas</span> <span class="punctuation">{</span>
+    <span class="pct">0%</span>   <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateX(-40px)</span><span class="punctuation">;</span> <span class="property">background</span><span class="punctuation">:</span> <span class="value">green</span><span class="punctuation">;</span> <span class="punctuation">}</span>
+    <span class="pct">25%</span>  <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateY(-40px)</span><span class="punctuation">;</span> <span class="property">background</span><span class="punctuation">:</span> <span class="value">yellow</span><span class="punctuation">;</span><span class="punctuation">}</span>
+    <span class="pct">50%</span>  <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateX( 40px)</span><span class="punctuation">;</span> <span class="property">background</span><span class="punctuation">:</span> <span class="value">red</span><span class="punctuation">;</span>   <span class="punctuation">}</span>
+    <span class="pct">100%</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">translateX(-40px)</span><span class="punctuation">;</span> <span class="property">background</span><span class="punctuation">:</span> <span class="value">green</span><span class="punctuation">;</span> <span class="punctuation">}</span>
+<span class="punctuation">}</span>
+
+<span class="comment">/* 0% e 100% iguais = loop sem "salto" */</span>
+<span class="keyword">@keyframes</span> <span class="selector">pulso</span> <span class="punctuation">{</span>
+    <span class="pct">0%, 100%</span> <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">scale(1)</span><span class="punctuation">;</span>   <span class="punctuation">}</span>
+    <span class="pct">50%</span>      <span class="punctuation">{</span> <span class="property">transform</span><span class="punctuation">:</span> <span class="value">scale(1.5)</span><span class="punctuation">;</span> <span class="punctuation">}</span>
+<span class="punctuation">}</span></pre>
         </div>
-        <h3>Text Reveal</h3>
-      </div>
+    </div>
 
-      <div class="example-item reveal" data-reveal>
-        <div class="motion-demo demo-stagger" data-demo="stagger">
-          <div class="stagger-row">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+    <div id="aba2" class="aba-conteudo">
+        <div class="header-aluno">
+            <h2>Duração e Timing Function</h2>
+            <p>Aluno 2: Quanto tempo dura e como o elemento acelera/desacelera.</p>
         </div>
-        <h3>Stagger</h3>
-      </div>
 
-      <div class="example-item reveal" data-reveal>
-        <div class="motion-demo demo-float" data-demo="float">
-          <div class="float-chip chip-a"></div>
-          <div class="float-chip chip-b"></div>
-          <div class="float-chip chip-c"></div>
-          <div class="float-chip chip-d"></div>
+        <div class="palco" style="height: 260px; align-items: flex-end; padding-bottom: 30px;">
+            <div class="palco-label"><div class="caixa-timing t-linear"></div><span>linear</span></div>
+            <div class="palco-label"><div class="caixa-timing t-ease"></div><span>ease</span></div>
+            <div class="palco-label"><div class="caixa-timing t-ease-in"></div><span>ease-in</span></div>
+            <div class="palco-label"><div class="caixa-timing t-ease-out"></div><span>ease-out</span></div>
+            <div class="palco-label"><div class="caixa-timing t-ease-io"></div><span>ease-in-out</span></div>
+            <div class="palco-label"><div class="caixa-timing t-cubic"></div><span>cubic-bezier<br>(mola)</span></div>
+            <div class="palco-label"><div class="caixa-timing t-steps"></div><span>steps(5)<br>(degraus)</span></div>
         </div>
-        <h3>Floating</h3>
-      </div>
-    </section>
-  </main>
 
-  <script src="script.js"></script>
+        <div class="vscode-window">
+            <div class="vscode-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<pre><span class="comment">/* animation-duration: quanto tempo dura 1 ciclo */</span>
+<span class="property">animation-duration</span><span class="punctuation">:</span> <span class="value">0.5s</span><span class="punctuation">;</span>    <span class="comment">/* rápido */</span>
+<span class="property">animation-duration</span><span class="punctuation">:</span> <span class="value">1s</span><span class="punctuation">;</span>      <span class="comment">/* médio */</span>
+<span class="property">animation-duration</span><span class="punctuation">:</span> <span class="value">3s</span><span class="punctuation">;</span>      <span class="comment">/* lento */</span>
+
+<span class="comment">/* animation-timing-function: a curva de velocidade */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">linear</span><span class="punctuation">;</span>        <span class="comment">/* velocidade constante */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">ease</span><span class="punctuation">;</span>          <span class="comment">/* padrão: devagar nas pontas */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">ease-in</span><span class="punctuation">;</span>       <span class="comment">/* começa devagar, termina rápido */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">ease-out</span><span class="punctuation">;</span>      <span class="comment">/* começa rápido, termina devagar */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">ease-in-out</span><span class="punctuation">;</span>   <span class="comment">/* devagar nos dois lados */</span>
+
+<span class="comment">/* cubic-bezier: curva personalizada (use cubic-bezier.com) */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">cubic-bezier(0.68, -0.55, 0.265, 1.55)</span><span class="punctuation">;</span>
+
+<span class="comment">/* steps: move em degraus discretos (ótimo pra sprite sheets) */</span>
+<span class="property">animation-timing-function</span><span class="punctuation">:</span> <span class="value">steps(5, end)</span><span class="punctuation">;</span></pre>
+        </div>
+    </div>
+
+    <div id="aba3" class="aba-conteudo">
+        <div class="header-aluno">
+            <h2>Delay e Número de Repetições</h2>
+            <p>Aluno 3: Quanto tempo esperar antes de começar, e quantas vezes repetir.</p>
+        </div>
+
+        <div class="palco" style="height: 260px; flex-direction: column; gap: 20px;">
+            <div style="display:flex; gap:30px; align-items:flex-end;">
+                <div class="palco-label"><div class="barra-delay d-0"></div><span>delay: 0s</span></div>
+                <div class="palco-label"><div class="barra-delay d-02"></div><span>0.2s</span></div>
+                <div class="palco-label"><div class="barra-delay d-04"></div><span>0.4s</span></div>
+                <div class="palco-label"><div class="barra-delay d-06"></div><span>0.6s</span></div>
+                <div class="palco-label"><div class="barra-delay d-08"></div><span>0.8s</span></div>
+                <div class="palco-label"><div class="barra-delay d-neg"></div><span>-0.75s </span></div>
+            </div>
+            <div style="display:flex; gap:40px;">
+                <div class="palco-label"><div class="i-1"></div><span>1 vez</span></div>
+                <div class="palco-label"><div class="i-3"></div><span>3 vezes</span></div>
+                <div class="palco-label"><div class="i-inf"></div><span>infinite</span></div>
+            </div>
+        </div>
+
+        <div class="vscode-window">
+            <div class="vscode-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<pre><span class="comment">/* animation-delay: espera antes de começar */</span>
+<span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value">0s</span><span class="punctuation">;</span>      <span class="comment">/* começa imediatamente (padrão) */</span>
+<span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value">0.5s</span><span class="punctuation">;</span>    <span class="comment">/* espera meio segundo */</span>
+<span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value">-0.75s</span><span class="punctuation">;</span>  <span class="comment">/* delay negativo: começa no meio da animação!</span>
+<span class="comment">                             útil pra criar defasagem em elementos iguais */</span>
+
+<span class="comment">/* cascata: delay crescente em cada elemento */</span>
+<span class="selector">.item-1</span> <span class="punctuation">{</span> <span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value">0s</span><span class="punctuation">;</span>   <span class="punctuation">}</span>
+<span class="selector">.item-2</span> <span class="punctuation">{</span> <span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value">0.2s</span><span class="punctuation">;</span> <span class="punctuation">}</span>
+<span class="selector">.item-3</span> <span class="punctuation">{</span> <span class="property">animation-delay</span><span class="punctuation">:</span> <span class="value">0.4s</span><span class="punctuation">;</span> <span class="punctuation">}</span>
+
+<span class="comment">/* animation-iteration-count: quantas vezes repete */</span>
+<span class="property">animation-iteration-count</span><span class="punctuation">:</span> <span class="value">1</span><span class="punctuation">;</span>         <span class="comment">/* 1 vez e para (padrão) */</span>
+<span class="property">animation-iteration-count</span><span class="punctuation">:</span> <span class="value">3</span><span class="punctuation">;</span>         <span class="comment">/* exatamente 3 vezes */</span>
+<span class="property">animation-iteration-count</span><span class="punctuation">:</span> <span class="value">2.5</span><span class="punctuation">;</span>       <span class="comment">/* aceita decimal! */</span>
+<span class="property">animation-iteration-count</span><span class="punctuation">:</span> <span class="value">infinite</span><span class="punctuation">;</span>  <span class="comment">/* repete pra sempre */</span></pre>
+        </div>
+    </div>
+
+    <div id="aba4" class="aba-conteudo">
+        <div class="header-aluno">
+            <h2>Direção e Fill Mode</h2>
+            <p>Aluno 4: Pra onde a animação vai, e o que acontece antes e depois dela rodar.</p>
+        </div>
+
+        <div class="palco" style="height: 280px; flex-direction: column; gap: 20px;">
+            <div style="display:flex; gap:40px; align-items:flex-end; height:90px;">
+                <div class="palco-label"><div class="barra-dir dir-normal"></div><span>normal<br>→ → →</span></div>
+                <div class="palco-label"><div class="barra-dir dir-reverse"></div><span>reverse<br>← ← ←</span></div>
+                <div class="palco-label"><div class="barra-dir dir-alt"></div><span>alternate<br>→ ← →</span></div>
+                <div class="palco-label"><div class="barra-dir dir-alt-rev"></div><span>alt-reverse<br>← → ←</span></div>
+            </div>
+            <div style="display:flex; gap:40px; align-items:center;">
+                <div class="palco-label"><div class="fill-box f-none"      id="fn"></div><span>none</span></div>
+                <div class="palco-label"><div class="fill-box f-forwards"  id="ff"></div><span>forwards</span></div>
+                <div class="palco-label"><div class="fill-box f-backwards" id="fb"></div><span>backwards</span></div>
+                <div class="palco-label"><div class="fill-box f-both"      id="fbo"></div><span>both</span></div>
+            </div>
+        </div>
+
+        <button class="btn-demo" id="fill-btn">▶ Rodar (repete sozinho depois)</button>
+
+        <div class="vscode-window">
+            <div class="vscode-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<pre><span class="comment">/* animation-direction: pra onde a animação vai */</span>
+<span class="property">animation-direction</span><span class="punctuation">:</span> <span class="value">normal</span><span class="punctuation">;</span>            <span class="comment">/* padrão: sempre de 0% → 100% */</span>
+<span class="property">animation-direction</span><span class="punctuation">:</span> <span class="value">reverse</span><span class="punctuation">;</span>           <span class="comment">/* sempre de 100% → 0% */</span>
+<span class="property">animation-direction</span><span class="punctuation">:</span> <span class="value">alternate</span><span class="punctuation">;</span>         <span class="comment">/* alterna: → ← → ← (sem salto!) */</span>
+<span class="property">animation-direction</span><span class="punctuation">:</span> <span class="value">alternate-reverse</span><span class="punctuation">;</span> <span class="comment">/* alterna: ← → ← → */</span>
+
+<span class="comment">/* animation-fill-mode: o que acontece antes/depois de rodar */</span>
+<span class="property">animation-fill-mode</span><span class="punctuation">:</span> <span class="value">none</span><span class="punctuation">;</span>        <span class="comment">/* padrão: volta ao estado original */</span>
+<span class="property">animation-fill-mode</span><span class="punctuation">:</span> <span class="value">forwards</span><span class="punctuation">;</span>    <span class="comment">/* FICA no estado final quando termina */</span>
+<span class="property">animation-fill-mode</span><span class="punctuation">:</span> <span class="value">backwards</span><span class="punctuation">;</span>   <span class="comment">/* aplica o estado inicial durante o delay */</span>
+<span class="property">animation-fill-mode</span><span class="punctuation">:</span> <span class="value">both</span><span class="punctuation">;</span>        <span class="comment">/* combina os dois — mais usado! */</span>
+
+<span class="comment">/* exemplo clássico: aparece e FICA aparecido */</span>
+<span class="selector">.aparecer</span> <span class="punctuation">{</span>
+    <span class="property">opacity</span><span class="punctuation">:</span> <span class="value">0</span><span class="punctuation">;</span>
+    <span class="property">animation</span><span class="punctuation">:</span> <span class="value">fadeIn 0.5s ease forwards</span><span class="punctuation">;</span>  <span class="comment">/* sem forwards voltaria pra 0! */</span>
+<span class="punctuation">}</span></pre>
+        </div>
+    </div>
+
+    <div id="aba5" class="aba-conteudo">
+        <div class="header-aluno">
+            <h2>Play-state e Múltiplas Animações</h2>
+            <p>Aluno 5: Pausar animações e aplicar várias ao mesmo tempo.</p>
+        </div>
+
+        <div class="palco">
+            <div class="palco-label">
+                <div class="spinner"></div>
+                <span>hover = pausa<br>(passe o mouse!)</span>
+            </div>
+            <div class="palco-label">
+                <div class="multi"></div>
+                <span>3 animações<br>ao mesmo tempo</span>
+            </div>
+        </div>
+
+        <div class="vscode-window">
+            <div class="vscode-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+<pre><span class="comment">/* animation-play-state: pausa ou retoma */</span>
+<span class="selector">.spinner</span> <span class="punctuation">{</span>
+    <span class="property">animation</span><span class="punctuation">:</span> <span class="value">rodar 1s linear infinite</span><span class="punctuation">;</span>
+    <span class="property">animation-play-state</span><span class="punctuation">:</span> <span class="value">running</span><span class="punctuation">;</span>   <span class="comment">/* padrão: rodando */</span>
+<span class="punctuation">}</span>
+<span class="selector">.spinner:hover</span> <span class="punctuation">{</span>
+    <span class="property">animation-play-state</span><span class="punctuation">:</span> <span class="value">paused</span><span class="punctuation">;</span>    <span class="comment">/* pausa ao passar o mouse */</span>
+<span class="punctuation">}</span>
+<span class="comment">/* via JS: elemento.style.animationPlayState = "paused" */</span>
+
+<span class="comment">/* múltiplas animações: separa por vírgula */</span>
+<span class="selector">.elemento</span> <span class="punctuation">{</span>
+    <span class="property">animation</span><span class="punctuation">:</span>
+        <span class="value">vai-volta  2s  ease-in-out  infinite  alternate</span><span class="punctuation">,</span>  <span class="comment">/* move */</span>
+        <span class="value">troca-cor  3s  linear       infinite  normal</span><span class="punctuation">,</span>     <span class="comment">/* cor */</span>
+        <span class="value">pulsa      0.8s ease        infinite  alternate</span><span class="punctuation">;</span>  <span class="comment">/* tamanho */</span>
+<span class="punctuation">}</span>
+
+<span class="comment">/* ATALHO COMPLETO — ordem das propriedades: */</span>
+<span class="comment">/* animation: nome  duração  timing  delay  iterações  direção  fill  play-state */</span>
+<span class="property">animation</span><span class="punctuation">:</span>          <span class="value">pular   1.2s     ease    0.2s   infinite   alternate  both  running</span><span class="punctuation">;</span></pre>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function abrirAba(evento, idAba) {
+        var conteudos = document.getElementsByClassName("aba-conteudo");
+        for (var i = 0; i < conteudos.length; i++) conteudos[i].classList.remove("ativa");
+
+        var botoes = document.getElementsByClassName("aba-btn");
+        for (var i = 0; i < botoes.length; i++) botoes[i].classList.remove("ativa");
+
+        document.getElementById(idAba).classList.add("ativa");
+        evento.currentTarget.classList.add("ativa");
+    }
+
+    
+    var ids = ['fn','ff','fb','fbo'];
+    var status = document.getElementById('fill-status');
+    var fillBtn = document.getElementById('fill-btn');
+    var intervalo = null;
+
+    function rodarFill() {
+        
+        ids.forEach(function(id) {
+            var el = document.getElementById(id);
+            el.classList.remove('rodar');
+            void el.offsetWidth;
+        });
+
+        
+        status.textContent = '⏳ delay (1.5s) — veja "backwards" e "both" sumindo...';
+        ids.forEach(function(id) {
+            document.getElementById(id).classList.add('rodar');
+        });
+
+        
+        setTimeout(function() {
+            status.textContent = '▶ animando (1.2s)...';
+        }, 1500);
+
+        
+        setTimeout(function() {
+            status.textContent = '✓ terminou — veja "forwards" e "both" ficando no lugar';
+        }, 2700);
+    }
+
+    fillBtn.addEventListener('click', function() {
+        rodarFill();
+        
+        clearInterval(intervalo);
+        intervalo = setInterval(rodarFill, 5000);
+        fillBtn.textContent = '⟳ repetindo automaticamente...';
+    });
+</script>
 </body>
 </html>

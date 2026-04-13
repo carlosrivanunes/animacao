@@ -1,0 +1,346 @@
+   body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .apresentacao-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 0px #999;
+        }
+
+        
+        .abas-nav {
+            display: flex;
+            background-color: #e0e0e0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .aba-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            font-weight: bold;
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+            border-right: 1px solid #ccc;
+            transition: background 0.2s;
+        }
+
+        .aba-btn:last-child { border-right: none; }
+        .aba-btn:hover { background-color: #d5d5d5; }
+
+        .aba-btn.ativa {
+            background-color: #fff;
+            color: #000;
+            border-bottom: 3px solid #0056b3;
+        }
+
+        .aba-conteudo {
+            display: none;
+            padding: 20px;
+        }
+        .aba-conteudo.ativa {
+            display: block;
+        }
+
+        .header-aluno {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #eee;
+        }
+        .header-aluno h2 { margin: 0 0 5px 0; font-size: 20px; }
+        .header-aluno p  { margin: 0; color: #666; font-size: 14px; }
+
+        
+        .palco {
+            height: 220px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            background-image: radial-gradient(#ddd 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .palco-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .palco-label span {
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .dica {
+            position: absolute;
+            bottom: 8px;
+            font-size: 11px;
+            color: #888;
+            background: rgba(255,255,255,0.8);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        
+        .vscode-window {
+            background-color: #1e1e1e;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        .vscode-header {
+            background-color: #323233;
+            padding: 8px 12px;
+            display: flex;
+            gap: 6px;
+            border-bottom: 1px solid #111;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red    { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green  { background: #27c93f; }
+
+        pre {
+            margin: 0;
+            padding: 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            color: #d4d4d4;
+            overflow-x: auto;
+            line-height: 1.9;
+        }
+
+        .keyword  { color: #569cd6; }
+        .selector { color: #d7ba7d; }
+        .property { color: #9cdcfe; }
+        .value    { color: #ce9178; }
+        .pct      { color: #b5cea8; }
+        .comment  { color: #6a9955; font-style: italic; }
+        .punctuation { color: #d4d4d4; }
+
+        
+        .btn-demo {
+            background: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .btn-demo:hover { background: #003d82; }
+
+        
+        .ex-fromto {
+            width: 60px; height: 60px;
+            background-color: #0056b3;
+            
+            animation: ex-mover 2s ease-in-out infinite alternate;
+        }
+        @keyframes ex-mover {
+            from { transform: translateX(-40px); }
+            to   { transform: translateX( 40px); }
+        }
+
+        
+        .ex-pct {
+            width: 60px; height: 60px;
+            background-color: #27c93f;
+            
+            animation: ex-etapas 3s ease-in-out infinite;
+        }
+        @keyframes ex-etapas {
+            0%   { transform: translateX(-40px); background: #27c93f; }
+            25%  { transform: translateY(-40px); background: #ffbd2e; }
+            50%  { transform: translateX( 40px); background: #ff5f56; }
+            75%  { transform: translateY( 40px); background: #0056b3; }
+            100% { transform: translateX(-40px); background: #27c93f; }
+        }
+
+       
+        .ex-loop {
+            width: 50px; height: 50px;
+            background-color: #ff5f56;
+            border-radius: 50%;
+            animation: ex-pulso 1.2s ease-in-out infinite;
+        }
+        @keyframes ex-pulso {
+            0%, 100% { transform: scale(1);   opacity: 1;   }
+            50%       { transform: scale(1.5); opacity: 0.5; }
+        }
+
+        
+
+        .caixa-timing {
+            width: 50px; height: 50px;
+            
+            animation: subir-descer 2s infinite alternate;
+        }
+        @keyframes subir-descer {
+            from { transform: translateY(-50px); }
+            to   { transform: translateY( 50px); }
+        }
+
+        .t-linear    { background: #aaa;     animation-timing-function: linear;       }
+        .t-ease      { background: #0056b3;  animation-timing-function: ease;         }
+        .t-ease-in   { background: #27c93f;  animation-timing-function: ease-in;      }
+        .t-ease-out  { background: #ffbd2e;  animation-timing-function: ease-out;     }
+        .t-ease-io   { background: #ff5f56;  animation-timing-function: ease-in-out;  }
+        .t-cubic     { background: #9b59b6;  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .t-steps     { background: #e67e22;  animation-timing-function: steps(5, end); }
+
+        .dur-05 { width: 50px; height: 50px; background: #0056b3; border-radius: 50%; animation: pulsar 0.5s ease-in-out infinite alternate; }
+        .dur-1  { width: 50px; height: 50px; background: #27c93f; border-radius: 50%; animation: pulsar   1s ease-in-out infinite alternate; }
+        .dur-3  { width: 50px; height: 50px; background: #ff5f56; border-radius: 50%; animation: pulsar   3s ease-in-out infinite alternate; }
+
+        @keyframes pulsar {
+            from { transform: scale(0.6); }
+            to   { transform: scale(1.3); }
+        }
+
+        
+
+        .barra-delay {
+            width: 40px; height: 40px;
+            background: #0056b3;
+            
+            animation: pulo 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes pulo {
+            from { transform: translateY(0px);   }
+            to   { transform: translateY(-60px); }
+        }
+
+        .d-0  { background: #aaa;     animation-delay:  0s;   }
+        .d-02 { background: #0056b3;  animation-delay: 0.2s;  }
+        .d-04 { background: #27c93f;  animation-delay: 0.4s;  }
+        .d-06 { background: #ffbd2e;  animation-delay: 0.6s;  }
+        .d-08 { background: #ff5f56;  animation-delay: 0.8s;  }
+        .d-neg { background: #9b59b6; animation-delay: -0.75s; } 
+
+        .i-1  { width: 50px; height: 50px; background: #aaa;  animation: girar 1s ease-in-out          1; }
+        .i-3  { width: 50px; height: 50px; background: #0056b3; animation: girar 1s ease-in-out          3; }
+        .i-inf{ width: 50px; height: 50px; background: #27c93f; animation: girar 1s linear         infinite; }
+
+        @keyframes girar {
+            from { transform: rotate(0deg);   }
+            to   { transform: rotate(360deg); }
+        }
+
+        
+
+        .barra-dir {
+            width: 16px; height: 60px;
+            
+            animation: crescer-dir 1.5s ease-in-out infinite;
+        }
+        @keyframes crescer-dir {
+            from { transform: scaleY(0.1); opacity: 0.3; }
+            to   { transform: scaleY(1);   opacity: 1;   }
+        }
+
+        .dir-normal    { background: #0056b3; animation-direction: normal;           }
+        .dir-reverse   { background: #ff5f56; animation-direction: reverse;          }
+        .dir-alt       { background: #27c93f; animation-direction: alternate;        }
+        .dir-alt-rev   { background: #ffbd2e; animation-direction: alternate-reverse;}
+
+        
+
+        
+        .fill-box {
+            width: 60px; height: 60px;
+            
+            opacity: 1;
+            transform: none;
+        }
+
+        .f-none      { background: #aaa;    }
+        .f-forwards  { background: #0056b3; }
+        .f-backwards { background: #ff5f56; }
+        .f-both      { background: #27c93f; }
+
+        
+        .fill-box.rodar.f-none      { animation: fill-demo 1.2s ease 1.5s 1 normal none;      }
+        .fill-box.rodar.f-forwards  { animation: fill-demo 1.2s ease 1.5s 1 normal forwards;  }
+        .fill-box.rodar.f-backwards { animation: fill-demo 1.2s ease 1.5s 1 normal backwards; }
+        .fill-box.rodar.f-both      { animation: fill-demo 1.2s ease 1.5s 1 normal both;      }
+
+        @keyframes fill-demo {
+            from { transform: translateY(50px) scale(0.1); opacity: 0; }
+            to   { transform: translateY(-20px) scale(1.3); opacity: 1; }
+        }
+
+        .fill-status {
+            font-size: 12px;
+            font-family: 'Consolas', monospace;
+            color: #888;
+            text-align: center;
+            margin-bottom: 8px;
+            height: 20px;
+        }
+
+        
+
+        .spinner {
+            width: 60px; height: 60px;
+            border: 8px solid #ccc;
+            border-top-color: #0056b3;
+            border-radius: 50%;
+            animation: rodar 1s linear infinite;
+            cursor: pointer;
+        }
+        .spinner:hover {
+            animation-play-state: paused; 
+        }
+        @keyframes rodar {
+            to { transform: rotate(360deg); }
+        }
+
+        
+        .multi {
+            width: 70px; height: 70px;
+            background: #0056b3;
+            
+            animation:
+                vai-volta  2s ease-in-out infinite alternate, 
+                troca-cor  3s linear infinite,           
+                pulsa      0.8s ease infinite alternate; 
+        }
+        @keyframes vai-volta {
+            from { transform: translateX(-50px); }
+            to   { transform: translateX( 50px); }
+        }
+        @keyframes troca-cor {
+            0%   { background: #0056b3; }
+            33%  { background: #27c93f; }
+            66%  { background: #ff5f56; }
+            100% { background: #0056b3; }
+        }
+        @keyframes pulsa {
+            from { transform: scale(0.9); }
+            to   { transform: scale(1.2); }
+        }
